@@ -21,11 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /**-------------------------------------Administrator---------------------------------------- */
 
-Route::prefix('admin')->namespace('Auth')->name('admin.')->group(function() {
+Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
 
-    Route::get('/login','AdminLoginController@showLoginForm')->name('login');
-    Route::post('/login', 'AdminLoginController@login')->name('login.submit');
-    Route::get('logout/', 'AdminLoginController@logout')->name('logout');
-    Route::get('/', 'AdminController@index')->name('dashboard');
+    Route::get('login', 'AdminAuthController@getLogin')->name('login');
+    Route::post('login', 'AdminAuthController@postLogin');
+    Route::post('logout', 'AdminAuthController@postLogout')->name('logout');
 
-}) ;
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+});

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header align-middle">
                     <div class="float-right">
-                        @role('writer') <button type="button" class="btn btn-outline-primary">Add Post</button> @endrole
+                        @role('super-admin') <button type="button" class="btn btn-outline-primary">Add Post</button> @endrole
                     </div>
                 </div>
 
